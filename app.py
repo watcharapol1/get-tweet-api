@@ -28,10 +28,10 @@ api = tw.API(auth)
 
 app = Flask(__name__)
 
-def search_tweets(keyword):
+def search_tweets():
 
     # Define the search term and the date_since date as variables
-    search_words = keyword
+    search_words request.args.get("keyword")
 
     new_search = search_words + "-filter:retweets" # Do not get retweet of tweets
     
@@ -58,9 +58,9 @@ def search_tweets(keyword):
 def home():
     return 'Hello World'
 
-@app.route('/get-tweet/<string:keyword>', methods=['GET'])
+@app.route('/api/get-tweet', methods=['GET'])
 def get_api(keyword):
-    return search_tweets(keyword)
+    return search_tweets()
 
 if __name__ == "__main__":
     app.run(debug=True)
