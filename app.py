@@ -31,7 +31,7 @@ app = Flask(__name__)
 def search_tweets():
 
     # Define the search term and the date_since date as variables
-    search_words request.args.get("keyword")
+    search_words = request.args.get("keyword")
 
     new_search = search_words + "-filter:retweets" # Do not get retweet of tweets
     
